@@ -1,0 +1,53 @@
+﻿@model IEnumerable<FirstCoreWeb.Models.Truck>
+
+@{
+    ViewData["Title"] = "Trucks";
+}
+
+<h1>Trucks</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.TruckNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TruckName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Status)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DriverName)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TruckNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TruckName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Status)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DriverName)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new {  id=item.TruckNumber }) |
+                @Html.ActionLink("Details", "Details", new { id = item.TruckNumber }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.TruckNumber })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
